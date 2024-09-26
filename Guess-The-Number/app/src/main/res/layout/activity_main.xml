@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/LinhaHorizontal20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/LinhaHorizontal85"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.85" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/LinhaVertical50"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/LinhaHorizontal60"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <TextView
+        android:id="@+id/Score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="Pontuação atual é 0"
+        android:text="Tentativas: 0"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/LinhaHorizontal20"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/numInputField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/input_field_border"
+        android:ems="10"
+        android:hint="Digite aqui"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/LinhaHorizontal85"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/LinhaHorizontal60"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <ImageButton
+        android:id="@+id/btnEnviar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/button_border"
+        android:contentDescription="Botão para enviar a resposta"
+        android:onClick="send"
+        android:padding="7dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/LinhaHorizontal85"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toEndOf="@+id/numInputField"
+        app:layout_constraintTop_toTopOf="@+id/LinhaHorizontal60"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/check" />
+
+    <ImageButton
+        android:id="@+id/btnDica"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/btn_dica_background"
+        android:contentDescription="Botão para pegar uma dica"
+        android:onClick="dica"
+        android:padding="12dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/LinhaVertical50"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/LinhaHorizontal85"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/idea" />
+
+    <ImageView
+        android:id="@+id/question_sign"
+        android:layout_width="175dp"
+        android:layout_height="250dp"
+        android:background="@drawable/question_sign_border"
+        app:layout_constraintBottom_toTopOf="@+id/LinhaHorizontal60"
+        app:layout_constraintEnd_toStartOf="@+id/LinhaVertical50"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/LinhaHorizontal20"
+        app:srcCompat="@drawable/question_sign" />
+
+    <ImageView
+        android:id="@+id/black_arrow_up"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        app:layout_constraintBottom_toTopOf="@+id/LinhaHorizontal40"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/LinhaVertical50"
+        app:layout_constraintTop_toTopOf="@+id/LinhaHorizontal20"
+        app:srcCompat="@drawable/up_arrow_black" />
+
+    <ImageView
+        android:id="@+id/black_arrow_down"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        app:layout_constraintBottom_toTopOf="@+id/LinhaHorizontal60"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/LinhaVertical50"
+        app:layout_constraintTop_toTopOf="@+id/LinhaHorizontal40"
+        app:srcCompat="@drawable/down_arrow_black" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/LinhaHorizontal40"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.40" />
+
+    <ImageView
+        android:id="@+id/green_arrow_up"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/LinhaHorizontal40"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/LinhaVertical50"
+        app:layout_constraintTop_toTopOf="@+id/LinhaHorizontal20"
+        app:srcCompat="@drawable/up_arrow_green" />
+
+    <ImageView
+        android:id="@+id/red_arrow_down"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/LinhaHorizontal60"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/LinhaVertical50"
+        app:layout_constraintTop_toTopOf="@+id/LinhaHorizontal40"
+        app:srcCompat="@drawable/down_arrow_red" />
+
+    <TextView
+        android:id="@+id/txtDica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/LinhaVertical50"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toEndOf="@+id/btnDica"
+        app:layout_constraintTop_toTopOf="@+id/LinhaHorizontal85" />
+
+    <TextView
+        android:id="@+id/txtExplanatory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:text="Escolha um número entre 0 e 100"
+        app:layout_constraintBottom_toTopOf="@+id/LinhaHorizontal66"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/LinhaHorizontal60" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/LinhaHorizontal66"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.66" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
